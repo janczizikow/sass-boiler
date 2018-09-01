@@ -1,0 +1,31 @@
+.col {
+  flex: 1 0 0;
+  max-width: 100%;
+}
+
+@each $prefix, $breakpoint in $grid-breakpoints {
+  @for $i from 1 through $grid-columns {
+    @include breakpoint($breakpoint) {
+
+      // generate column classes
+      .col-#{$prefix}-#{$i} {
+        @include make-col($i, $grid-columns);
+      }
+
+      // generate offset classes
+      .offset-#{$prefix}-#{$i - 1} {
+        @include make-offset($i - 1, $grid-columns);
+      }
+    }
+  }
+
+  @for $j from 0 through $grid-columns {
+    @include breakpoint($breakpoint) {
+
+      // generate order classes
+      .#{prefix}-order-#{$j} {
+        order: $j;
+      }
+    }
+  }
+}

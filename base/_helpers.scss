@@ -1,0 +1,64 @@
+// -----------------------------------------------------------------------------
+// This file contains all helper classes.
+// -----------------------------------------------------------------------------
+
+// General
+//
+//
+
+.skew--top {
+  clip-path: polygon(0 0, 100% 7%, 100% 100%, 0 100%);
+}
+
+.skew--clip {
+  clip-path: polygon(0 0, 100% 0, 100% 93%, 0 100%);
+}
+
+// Image helpers
+//
+//
+
+.img-responsive {
+  max-width: 100%;
+  height: auto;
+  vertical-align: middle;
+}
+
+
+.img-rounded {
+  border-radius: $border-radius;
+}
+
+.img-circle {
+  border-radius: 50%;
+}
+
+// Text helpers
+//
+//
+
+.text-left {
+  text-align: left;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.text-right {
+  text-align: right;
+}
+
+.small {
+  font-size: 80%;
+}
+
+@each $color, $hex in $color-map {
+  .#{$color}-text {
+    color: $hex;
+  }
+
+  .#{$color}-bg {
+    background-color: $hex;
+  }
+}

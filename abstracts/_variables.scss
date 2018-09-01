@@ -1,0 +1,93 @@
+// -----------------------------------------------------------------------------
+// This file contains all application-wide Sass variables.
+// -----------------------------------------------------------------------------
+
+$font-stack-sans-serif: "Avenir next", -apple-system, BlinkMacSystemFont, "Segoe UI",
+  Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji",
+  "Segoe UI Emoji", "Segoe UI Symbol";
+$font-stack-mono: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+
+$border-radius: 0.25rem; // 4px
+
+// Colors
+//
+// Color system
+
+$primary: #5757ff;
+$secondary: #ff61ab;
+$success: #46cf7b;
+$error: #ff5572;
+$disabled: #dddde6;
+$white: #fff;
+$grey: #f7f8f9;
+$grey-background: #f3f3f9;
+$grey-border: #e7e7f0;
+$grey-text: #bbbccd;
+$dark: #2a2a30;
+
+$color-map: (
+  primary: $primary,
+  secondary: $secondary,
+  success: $success,
+  error: $error,
+  disabled: $disabled,
+  white: $white,
+  light: $grey,
+  background: $grey-background,
+  border: $grey-border,
+  grey: $grey-text,
+  dark: $dark,
+);
+
+// Grid breakpoints
+//
+// Grid breakpoints
+
+$grid-breakpoints: (
+  xs: 0,
+  sm: 576px,
+  md: 768px,
+  lg: 992px,
+  xl: 1200px,
+);
+
+// Grid container
+//
+// Max widths of container for different breakpoints
+
+$container-max-widths: (
+  xs: 0,
+  sm: 540px,
+  md: 720px,
+  lg: 960px,
+  xl: 1200px,
+);
+
+// Grid container
+//
+// Max widths of container for different breakpoints
+
+$grid-gutters: 2rem; // 32px
+$grid-columns: 12;
+
+// Header
+//
+// Height of header (useful for fixed headers)
+
+$header-height: 3.75rem; // 60px
+$header-links-count: 3;
+
+// Assets URL
+//
+// Relative or absolute URL where all assets are served from
+$base-url: "/assets/";
+
+// Links
+//
+// Basic styles for links
+
+$link-color: $primary;
+$link-decoration: none;
+$link-hover-color: darken($link-color, 15%);
+$link-hover-decoration: underline;
+

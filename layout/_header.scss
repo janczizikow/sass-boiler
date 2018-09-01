@@ -1,0 +1,150 @@
+.header {
+  position: relative;
+  width: 100%;
+
+  &--fixed {
+    position: fixed;
+    top: 0;
+    left: 0;
+  }
+
+  &--transparent {
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: transparent;
+    color: $white;
+  }
+
+  &__inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: $header-height;
+  }
+
+  &__logo {
+    font-size: 1.125rem;
+    font-weight: 600;
+    z-index: 800;
+    @include link-reset;
+    @include flex-center;
+  }
+
+  &__toggle {
+    padding: calc((#{$header-height} - 22px) / 2) 0.5rem;
+    align-self: center;
+    border-radius: $border-radius;
+    background-color: transparent;
+    height: 100%;
+    width: 38px;
+    cursor: pointer;
+    z-index: 800;
+
+    @include breakpoint(map-get($grid-breakpoints, md)) {
+      display: none;
+    }
+  }
+
+  &__toggle-bar {
+    position: relative;
+    display: block;
+    height: 2px;
+    width: 100%;
+    margin-top: 4px;
+    border-radius: 5px;
+    background-color: $dark;
+    transition: all .3s cubic-bezier(1, 0.13, 0.35, 1.09);
+  }
+
+  &__links {
+    padding-top: $header-height;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    max-height: 0;
+    overflow: hidden;
+    background-color: $white;
+    z-index: 600;
+    transition: all 0.45s ease-out;
+
+    @include breakpoint(map-get($grid-breakpoints, md)) {
+      padding-top: 0;
+      position: static;
+      width: auto;
+      max-height: 100%;
+      background-color: transparent;
+      transition: none;
+      @include flex-center;
+    }
+  }
+
+  &__link-item {
+    padding: $grid-gutters / 2 0;
+    margin: 0 $grid-gutters / 2;
+    border-bottom: 1px solid map-get($color-map, border);
+    opacity: 0;
+    transform: translate3d(0, -25px, 0);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+    @include flex-center;
+    @include link-reset;
+
+    &:last-child {
+      margin-bottom: $grid-gutters;
+    }
+
+    @include breakpoint(map-get($grid-breakpoints, md)) {
+      opacity: 0.8;
+      transform: translate3d(0, 0, 0);
+      padding: 0;
+      border: 0;
+      transition: none;
+
+      &--active {
+        opacity: 1;
+      }
+
+      &:last-child {
+        margin-right: 0;
+        margin-bottom: 0;
+      }
+    }
+  }
+}
+
+.header__check {
+  display: none;
+
+  &:checked ~ .header__links {
+    max-height: 20rem;
+
+    .header__link-item {
+      opacity: 1;
+      transform: translate3d(0, 0, 0);
+
+      // scss-lint:disable NestingDepth
+      @for $i from 1 through $header-links-count {
+        &:nth-child(#{$i}) {
+          transition-delay: "#{0.07 * $i}s";
+        }
+      }
+      // scss-lint:enable NestingDepth
+    }
+  }
+
+  &:checked ~ .header__toggle {
+    .header__toggle-bar:first-child {
+      transform: rotate(45deg) translate(4.4px, 4.4px);
+    }
+
+    .header__toggle-bar:nth-child(2) {
+      width: 0%;
+      opacity: 0;
+    }
+
+    .header__toggle-bar:last-child {
+      transform: rotate(-45deg) translate(4.4px, -4.4px);
+    }
+  }
+}

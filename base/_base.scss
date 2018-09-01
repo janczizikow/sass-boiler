@@ -1,0 +1,60 @@
+// -----------------------------------------------------------------------------
+// Global style declarations
+// -----------------------------------------------------------------------------
+
+html {
+  box-sizing: border-box;
+}
+
+// https://css-tricks.com/inheriting-box-sizing-probably-slightly-better-best-practice/
+*::before,
+*::after,
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  color: theme(dark);
+  background-color: theme(white);
+}
+
+.site {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+
+  &__content {
+    flex: 1;
+  }
+}
+
+a {
+  color: $link-color;
+  text-decoration: $link-decoration;
+  outline: 0;
+  transition: color 0.1s;
+
+  &:hover,
+  &:focus {
+    color: $link-hover-color;
+    text-decoration: $link-hover-decoration;
+  }
+}
+
+hr {
+  margin: 1rem 0;
+  border: 0;
+  border-top: 1px solid theme(border);
+}
+
+img {
+  vertical-align: middle;
+
+}
+
+::selection {
+  background-color: theme(primary);
+  color: theme(white);
+}

@@ -1,0 +1,83 @@
+.card {
+  position: relative;
+  margin-bottom: 1.25rem; // don't use % value see more: https://github.com/philipwalton/flexbugs/issues/86
+  display: block;
+  width: 100%;
+  text-decoration: none;
+  color: inherit;
+  border-radius: $border-radius;
+  overflow: hidden;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.08);
+  transition: box-shadow 0.3s ease;
+
+  &:hover,
+  &:focus {
+    text-decoration: none;
+    color: inherit;
+    outline: 0;
+  }
+
+  @include breakpoint(map-get($grid-breakpoints, md)) {
+    &:hover,
+    &:focus {
+      box-shadow: 0 10px 20px 0 rgba(0, 0, 0, 0.1);
+    }
+  }
+
+  &__inner {
+    background: theme(white);
+    border-radius: $border-radius;
+  }
+
+  // CSS intrinsic ratio scaling technique
+  // http://www.mademyday.de/css-height-equals-width-with-pure-css.html
+  &__img {
+    margin: 0;
+    background: theme(background);
+    position: relative;
+    overflow: hidden;
+
+    > * {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      display: block;
+    }
+
+    &::after {
+      content: "";
+      display: block;
+      height: 0;
+      width: 100%;
+      // for images in 16:9 aspect ratio
+      padding-bottom: percentage(9 / 16);
+    }
+  }
+
+  &__body {
+    padding: 24px 16px;
+    background-color: theme(white);
+    border-bottom-left-radius: 6px;
+    border-bottom-right-radius: 6px;
+  }
+
+  &__title {
+    margin: 0;
+    font-size: 21px;
+    line-height: 1.5;
+    font-weight: bold;
+  }
+
+  &__text {
+
+  }
+
+  &__meta {
+    margin-top: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+}

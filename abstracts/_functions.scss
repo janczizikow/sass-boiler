@@ -1,0 +1,7 @@
+// -----------------------------------------------------------------------------
+// This file contains all application-wide Sass functions.
+// -----------------------------------------------------------------------------
+
+@function theme($key, $map: $color-map) {
+  @return map-get($map, $key);
+}

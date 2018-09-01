@@ -1,0 +1,18 @@
+.container {
+  padding: 0 $grid-gutters / 2;
+  margin: 0 auto;
+
+  @each $prefix, $breakpoint in $grid-breakpoints {
+    @each $c-prefix, $width in $container-max-widths {
+      @if $prefix == $c-prefix {
+        @include breakpoint($breakpoint) {
+          @include container($width)
+        }
+      }
+    }
+  }
+
+  &--fluid {
+    max-width: 100%;
+  }
+}

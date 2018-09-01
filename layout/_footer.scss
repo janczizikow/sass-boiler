@@ -1,0 +1,36 @@
+.footer {
+  padding: 5rem 0; // 80px
+  border-top: 1px solid theme(border);
+
+
+  &--dark {
+    padding: 5rem 0;
+    border-top: 0;
+    background-color: theme(dark);
+    color: theme(white);
+  }
+
+  &__inner {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  &__legal {
+    opacity: 0.8;
+  }
+
+  &__link {
+    margin: 0 0.5rem;
+    @include link-reset(white);
+
+    &:first-child {
+      margin-left: 0;
+    }
+
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+}
