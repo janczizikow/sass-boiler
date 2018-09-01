@@ -24,7 +24,11 @@ bundle
 
 Replace Rails' stylesheets (make sure you're in your project's root directory):
 
-FIXME:ADD LINKS
+```
+rm -rf app/assets/stylesheets
+curl -L https://github.com/janczizikow/sass-boiler/archive/master.zip > stylesheets.zip
+unzip stylesheets.zip -d app/assets && rm stylesheets.zip && mv app/assets/sass-boiler-master app/assets/stylesheets && rm app/assets/stylesheets/.gitignore && rm app/assets/stylesheets/.scss-lint.yml
+```
 
 ### Viewport tag
 
